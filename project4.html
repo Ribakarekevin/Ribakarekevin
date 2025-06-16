@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <style type="text/css">
+    .page form {
+                background-size: cover;
+                background-position: center;
+            }
+    body {
+      background-color:lightgrey;
+    }
+
+    #convertButton {
+      background-color: blue;
+      color: white;
+      padding: 10px 20px; /* Make the button bigger */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      width: 300px; /* Make the textbox bigger */
+      height: 50px;
+      background-color: black; /* Set black background */
+      color: white; /* Set text color */
+    }
+  </style>
+</head>
+<body align="center">
+  <h2>Currency Converter APP</h2>
+
+  <label for="amount">Enter amount in:</label>
+                          Frw  
+  <input type="amount" id="amount" placeholder="Enter amount">
+ <br><br>
+  <label for="currency">Select Currency:</label>
+  <select id="currency">
+    <option value="FRW">FRW</option>
+    <option value="USD">USD</option>
+    <option value="EURO">EURO</option>
+    <!-- Add more currency options as needed -->
+  </select>
+  <br><br>
+  <label for="rate">
+    
+    
+    Rate:</label>
+  <input type="rate" id="rate" placeholder="Enter currency rate">
+    <br><br>
+  <button id="convertButton"  onclick="convertCurrency()">Convert</button>
+   <br><br>
+  <label for="result">Result:</label><br>
+  <input type="text" id="result" placeholder="Result Here...." readonly>
+
+  <script>
+    function convertCurrency() {
+      // Get the input values
+      var amount = parseFloat(document.getElementById("amount").value);
+      var currency = document.getElementById("currency").value;
+      var rate = parseFloat(document.getElementById("rate").value);
+
+      // Perform the conversion
+      var convertedAmount;
+      if (currency === "FRW") {
+        convertedAmount = amount / rate;
+      } else {
+        convertedAmount = amount * rate;
+      }
+
+      // Display the converted amount
+      document.getElementById("result").value = convertedAmount.toFixed(2);
+    }
+  </script>
+</body>
+</html>
